@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <title>画像フィルターツール</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>画像フィルターツール</h1>
+    <div class="upload-area">
+      <input type="file" id="imageInput" accept="image/*" />
+    </div>
+
+    <div class="controls">
+      <button id="grayscaleBtn" disabled>グレースケール</button>
+      <button id="resetBtn" disabled>リセット</button>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

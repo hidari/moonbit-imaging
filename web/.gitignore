@@ -1,0 +1,2 @@
+# useIgnoreFileがtrueでも探しに行っちゃうバグがなかなか修正されない
+# https://github.com/biomejs/biome/issues/6964

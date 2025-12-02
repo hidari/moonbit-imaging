@@ -1,0 +1,19 @@
+# IDE
+.idea/
+
+# MoonBit
+target/
+.mooncakes/
+.moonagent/
+
+# Logs
+logs
+*.log
+pnpm-debug.log*
+
+node_modules
+dist
+*.local
+
+# Web
+**/*.wasm

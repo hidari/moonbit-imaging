@@ -1,0 +1,15 @@
+{
+  "is-main": false,
+  "import": [],
+  "link": {
+    "wasm-gc": {
+      "exports": [
+        "grayscale"
+      ],
+      "import-memory": {
+        "module": "env",
+        "name": "memory"
+      }
+    }
+  }
+}
