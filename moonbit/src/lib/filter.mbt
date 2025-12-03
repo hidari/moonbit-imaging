@@ -92,7 +92,7 @@ fn clamp(value : Int, min : Int, max : Int) -> Int {
 /// width: 画像の幅（ピクセル単位）
 /// height: 画像の高さ（ピクセル単位）
 /// brightness: 調整量（-255から255の範囲）正の値で明るく、負の値で暗くなる
-pub fn brightness(width : Int, height : Int, brightness : Int) -> Unit {
+pub fn brightness(_width : Int, _height : Int, brightness : Int) -> Unit {
   let data_len = read_length(buffer_offset)
   let data_start = buffer_offset + 4
   let pixel_count = data_len / 4

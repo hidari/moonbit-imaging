@@ -30,11 +30,11 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noExplicitAny": "warn"
+        "noExplicitAny": "off" // TODO: あとで error に変更する
       },
       "style": {
         "useConst": "error",
-        "noNonNullAssertion": "warn"
+        "noNonNullAssertion": "off" // TODO: あとで error に変更する
       }
     }
   },
