@@ -4,7 +4,8 @@
   "link": {
     "wasm-gc": {
       "exports": [
-        "grayscale"
+        "grayscale",
+        "brightness"
       ],
       "import-memory": {
         "module": "env",

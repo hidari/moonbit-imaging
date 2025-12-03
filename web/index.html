@@ -17,6 +17,12 @@
 
     <div class="controls">
       <button id="grayscaleBtn" disabled>グレースケール</button>
+      <div class="brightness-control">
+        <label for="brightnessSlider">明度:</label>
+        <input type="range" id="brightnessSlider" min="-100" max="100" value="0" disabled>
+        <span id="brightnessValue">0</span>
+        <button id="applyBrightnessBtn" disabled>適用</button>
+      </div>
       <button id="resetBtn" disabled>リセット</button>
     </div>
 

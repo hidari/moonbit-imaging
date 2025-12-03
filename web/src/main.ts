@@ -4,6 +4,7 @@ import './style.css';
 interface ImageFilterModule {
   memory: WebAssembly.Memory;
   grayscale: (width: number, height: number) => void;
+  brightness: (width: number, height: number, brightness: number) => void;
 }
 
 // メモリのオフセット位置（MoonBit側と同じ値を使用）
@@ -18,6 +19,9 @@ const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
 const imageInput = document.getElementById('imageInput') as HTMLInputElement;
 const grayscaleBtn = document.getElementById('grayscaleBtn') as HTMLButtonElement;
+const brightnessSlider = document.getElementById('brightnessSlider') as HTMLInputElement;
+const brightnessValue = document.getElementById('brightnessValue') as HTMLSpanElement;
+const applyBrightnessBtn = document.getElementById('applyBrightnessBtn') as HTMLButtonElement;
 const resetBtn = document.getElementById('resetBtn') as HTMLButtonElement;
 
 // WASMモジュールの初期化
@@ -40,6 +44,7 @@ async function initWasm() {
     wasmModule = {
       memory: memory,
       grayscale: instance.exports.grayscale as any,
+      brightness: instance.exports.brightness as any,
     };
 
     console.info(
@@ -102,8 +107,10 @@ imageInput.addEventListener('change', async (e) => {
     // 元の画像データを保存
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    // ボタンを有効化
+    // ボタンなどを有効化
     grayscaleBtn.disabled = false;
+    brightnessSlider.disabled = false;
+    applyBrightnessBtn.disabled = false;
     resetBtn.disabled = false;
   };
 
@@ -127,6 +134,25 @@ grayscaleBtn.addEventListener('click', () => {
   readImageDataFromMemory(imageData);
 
   // Canvasに描画
+  ctx.putImageData(imageData, 0, 0);
+});
+
+// スライダーの値が変更されたら表示を更新
+brightnessSlider.addEventListener('input', () => {
+  brightnessValue.textContent = brightnessSlider.value;
+});
+
+// 明度調整を適用
+applyBrightnessBtn.addEventListener('click', () => {
+  if (!wasmModule || !originalImageData) return;
+
+  const brightness = parseInt(brightnessSlider.value, 10);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  writeImageDataToMemory(imageData);
+  wasmModule.brightness(canvas.width, canvas.height, brightness);
+  readImageDataFromMemory(imageData);
+
   ctx.putImageData(imageData, 0, 0);
 });
 

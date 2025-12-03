@@ -70,3 +70,46 @@ pub fn grayscale(_width : Int, _height : Int) -> Unit {
     store8(base + 3, a) // アルファチャンネルは保持
   }
 }
+
+///|
+/// 値を指定範囲にクリップするヘルパー関数
+/// value: クリップする値
+/// min: 最小値
+/// max: 最大値
+/// 戻り値: min以上max以下の値
+fn clamp(value : Int, min : Int, max : Int) -> Int {
+  if value < min {
+    min
+  } else if value > max {
+    max
+  } else {
+    value
+  }
+}
+
+///|
+/// 明度調整フィルター
+/// width: 画像の幅（ピクセル単位）
+/// height: 画像の高さ（ピクセル単位）
+/// brightness: 調整量（-255から255の範囲）正の値で明るく、負の値で暗くなる
+pub fn brightness(width : Int, height : Int, brightness : Int) -> Unit {
+  let data_len = read_length(buffer_offset)
+  let data_start = buffer_offset + 4
+  let pixel_count = data_len / 4
+  for i = 0; i < pixel_count; i = i + 1 {
+    let base = data_start + i * 4
+    let r = load8(base)
+    let g = load8(base + 1)
+    let b = load8(base + 2)
+    let a = load8(base + 3)
+
+    // 明度を調整し、0-255の範囲にクリップ
+    let new_r = clamp(r + brightness, 0, 255)
+    let new_g = clamp(g + brightness, 0, 255)
+    let new_b = clamp(b + brightness, 0, 255)
+    store8(base, new_r)
+    store8(base + 1, new_g)
+    store8(base + 2, new_b)
+    store8(base + 3, a)
+  }
+}
