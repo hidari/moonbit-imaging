@@ -1,6 +1,6 @@
 # 開発環境 Makefile
 
-.PHONY: build-wasm copy-wasm set-wasm lint start boot
+.PHONY: build-wasm copy-wasm set-wasm format-moonbit format-front format start boot
 
 # MoonBitコードのコンパイル
 build-wasm:
@@ -15,10 +15,20 @@ set-wasm:
 	make build-wasm && \
 	make copy-wasm
 
-# Linting & Formatting
-lint:
+# MoonBitのLinting & Formatting
+format-moonbit:
+	cd moonbit && \
+	moon fmt
+
+# フロントエンドのLinting & Formatting
+format-front:
 	cd web &&\
-	pnpm run lint:fix
+	pnpm run lint:fix --unsafe
+
+# 全体のLinting & Formatting
+format:
+	make format-moonbit && \
+	make format-front
 
 # Vite開発サーバーの起動
 start:

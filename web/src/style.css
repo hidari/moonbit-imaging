@@ -92,7 +92,7 @@ body {
 }
 
 .canvas-container::before {
-  content: 'No Image';
+  content: "No Image";
   position: absolute;
   color: #ccc;
   font-size: 24px;
