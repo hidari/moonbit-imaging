@@ -5,6 +5,8 @@ interface ImageFilterModule {
   memory: WebAssembly.Memory;
   grayscale: (width: number, height: number) => void;
   brightness: (width: number, height: number, brightness: number) => void;
+  contrast: (width: number, height: number, contrast: number) => void;
+  color_balance: (width: number, height: number, red: number, green: number, blue: number) => void;
 }
 
 // メモリのオフセット位置（MoonBit側と同じ値を使用）
@@ -22,6 +24,16 @@ const grayscaleBtn = document.getElementById('grayscaleBtn') as HTMLButtonElemen
 const brightnessSlider = document.getElementById('brightnessSlider') as HTMLInputElement;
 const brightnessValue = document.getElementById('brightnessValue') as HTMLSpanElement;
 const applyBrightnessBtn = document.getElementById('applyBrightnessBtn') as HTMLButtonElement;
+const contrastSlider = document.getElementById('contrastSlider') as HTMLInputElement;
+const contrastValue = document.getElementById('contrastValue') as HTMLSpanElement;
+const applyContrastBtn = document.getElementById('applyContrastBtn') as HTMLButtonElement;
+const redSlider = document.getElementById('redSlider') as HTMLInputElement;
+const redValue = document.getElementById('redValue') as HTMLSpanElement;
+const greenSlider = document.getElementById('greenSlider') as HTMLInputElement;
+const greenValue = document.getElementById('greenValue') as HTMLSpanElement;
+const blueSlider = document.getElementById('blueSlider') as HTMLInputElement;
+const blueValue = document.getElementById('blueValue') as HTMLSpanElement;
+const applyColorBalanceBtn = document.getElementById('applyColorBalanceBtn') as HTMLButtonElement;
 const resetBtn = document.getElementById('resetBtn') as HTMLButtonElement;
 
 // WASMモジュールの初期化
@@ -45,6 +57,8 @@ async function initWasm() {
       memory: memory,
       grayscale: instance.exports.grayscale as any,
       brightness: instance.exports.brightness as any,
+      contrast: instance.exports.contrast as any,
+      color_balance: instance.exports.color_balance as any,
     };
 
     console.info(
@@ -111,6 +125,12 @@ imageInput.addEventListener('change', async (e) => {
     grayscaleBtn.disabled = false;
     brightnessSlider.disabled = false;
     applyBrightnessBtn.disabled = false;
+    contrastSlider.disabled = false;
+    applyContrastBtn.disabled = false;
+    redSlider.disabled = false;
+    greenSlider.disabled = false;
+    blueSlider.disabled = false;
+    applyColorBalanceBtn.disabled = false;
     resetBtn.disabled = false;
   };
 
@@ -151,6 +171,52 @@ applyBrightnessBtn.addEventListener('click', () => {
 
   writeImageDataToMemory(imageData);
   wasmModule.brightness(canvas.width, canvas.height, brightness);
+  readImageDataFromMemory(imageData);
+
+  ctx.putImageData(imageData, 0, 0);
+});
+
+// コントラスト調整スライダーの値表示更新
+contrastSlider.addEventListener('input', () => {
+  contrastValue.textContent = contrastSlider.value;
+});
+
+// コントラスト調整を適用
+applyContrastBtn.addEventListener('click', () => {
+  if (!wasmModule || !originalImageData) return;
+
+  const contrast = parseInt(contrastSlider.value, 10);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  writeImageDataToMemory(imageData);
+  wasmModule.contrast(canvas.width, canvas.height, contrast);
+  readImageDataFromMemory(imageData);
+
+  ctx.putImageData(imageData, 0, 0);
+});
+
+// 色味調整スライダーの値表示更新
+redSlider.addEventListener('input', () => {
+  redValue.textContent = redSlider.value;
+});
+greenSlider.addEventListener('input', () => {
+  greenValue.textContent = greenSlider.value;
+});
+blueSlider.addEventListener('input', () => {
+  blueValue.textContent = blueSlider.value;
+});
+
+// 色味調整を適用
+applyColorBalanceBtn.addEventListener('click', () => {
+  if (!wasmModule || !originalImageData) return;
+
+  const red = parseInt(redSlider.value, 10);
+  const green = parseInt(greenSlider.value, 10);
+  const blue = parseInt(blueSlider.value, 10);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  writeImageDataToMemory(imageData);
+  wasmModule.color_balance(canvas.width, canvas.height, red, green, blue);
   readImageDataFromMemory(imageData);
 
   ctx.putImageData(imageData, 0, 0);

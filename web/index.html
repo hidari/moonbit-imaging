@@ -4,30 +4,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <title>画像フィルターツール</title>
+  <title>MoonBit Imaging</title>
 </head>
 
 <body>
   <div id="app">
-    <h1>画像フィルターツール</h1>
-    <div class="upload-area">
-      <input type="file" id="imageInput" accept="image/*" />
-    </div>
+    <header class="header">
+      <h1><a href="./">MoonBit Imaging</a></h1>
+    </header>
 
-    <div class="controls">
-      <button id="grayscaleBtn" disabled>グレースケール</button>
-      <div class="brightness-control">
-        <label for="brightnessSlider">明度:</label>
-        <input type="range" id="brightnessSlider" min="-100" max="100" value="0" disabled>
-        <span id="brightnessValue">0</span>
-        <button id="applyBrightnessBtn" disabled>適用</button>
-      </div>
-      <button id="resetBtn" disabled>リセット</button>
-    </div>
+    <div class="content">
+      <main class="main-content">
+        <div class="canvas-container">
+          <canvas id="canvas"></canvas>
+        </div>
+      </main>
 
-    <div class="canvas-container">
-      <canvas id="canvas"></canvas>
+      <aside class="sidebar">
+        <div class="upload-area">
+          <input type="file" id="imageInput" accept="image/*" />
+        </div>
+
+        <div class="controls">
+          <div class="filter-section">
+            <h3>基本フィルター</h3>
+            <button id="grayscaleBtn" disabled>グレースケール</button>
+          </div>
+
+          <div class="filter-section">
+            <h3>明度調整</h3>
+            <div class="slider-control">
+              <label for="brightnessSlider">明度: <span id="brightnessValue">0</span></label>
+              <input type="range" id="brightnessSlider" min="-100" max="100" value="0" disabled>
+              <button id="applyBrightnessBtn" disabled>適用</button>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>コントラスト調整</h3>
+            <div class="slider-control">
+              <label for="contrastSlider">コントラスト: <span id="contrastValue">100</span></label>
+              <input type="range" id="contrastSlider" min="0" max="200" value="100" disabled>
+              <button id="applyContrastBtn" disabled>適用</button>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>色味調整</h3>
+            <div class="slider-control">
+              <label for="redSlider">赤: <span id="redValue">100</span></label>
+              <input type="range" id="redSlider" min="0" max="200" value="100" disabled>
+            </div>
+            <div class="slider-control">
+              <label for="greenSlider">緑: <span id="greenValue">100</span></label>
+              <input type="range" id="greenSlider" min="0" max="200" value="100" disabled>
+            </div>
+            <div class="slider-control">
+              <label for="blueSlider">青: <span id="blueValue">100</span></label>
+              <input type="range" id="blueSlider" min="0" max="200" value="100" disabled>
+            </div>
+            <button id="applyColorBalanceBtn" disabled>適用</button>
+          </div>
+
+          <div class="filter-section">
+            <button id="resetBtn" disabled>リセット</button>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
   <script type="module" src="/src/main.ts"></script>

@@ -1,5 +1,6 @@
 ///|
 /// WebAssemblyのメモリに直接アクセスするためのFFI関数
+///
 /// load8: メモリの指定位置から1バイトを読み取る
 extern "wasm" fn load8(pos : Int) -> Int =
   #|(func (param $pos i32) (result i32)
@@ -13,12 +14,14 @@ extern "wasm" fn store8(pos : Int, value : Int) =
 
 ///|
 /// メモリのオフセット位置を定義
+///
 /// WebAssemblyのメモリは64KBページ単位で管理される
 /// 32768バイト（32KB）目から使用することで、他のデータとの衝突を避ける
 let buffer_offset : Int = 32768
 
 ///|
 /// メモリからデータ長を読み取る関数
+///
 /// リトルエンディアン形式で4バイトの整数として格納されている
 fn read_length(offset : Int) -> Int {
   let b0 = load8(offset)
@@ -31,6 +34,7 @@ fn read_length(offset : Int) -> Int {
 
 ///|
 /// グレースケール変換を行う関数
+///
 /// width: 画像の幅（ピクセル単位）
 /// height: 画像の高さ（ピクセル単位）
 ///
@@ -89,6 +93,7 @@ fn clamp(value : Int, min : Int, max : Int) -> Int {
 
 ///|
 /// 明度調整フィルター
+///
 /// width: 画像の幅（ピクセル単位）
 /// height: 画像の高さ（ピクセル単位）
 /// brightness: 調整量（-255から255の範囲）正の値で明るく、負の値で暗くなる
@@ -110,6 +115,80 @@ pub fn brightness(_width : Int, _height : Int, brightness : Int) -> Unit {
     store8(base, new_r)
     store8(base + 1, new_g)
     store8(base + 2, new_b)
+    store8(base + 3, a)
+  }
+}
+
+///|
+/// 色味調整フィルター
+///
+/// width: 画像の幅（ピクセル単位）
+/// height: 画像の高さ（ピクセル単位）
+/// red_factor: 赤チャンネルの係数（100倍された整数値）
+/// green_factor: 緑チャンネルの係数（100倍された整数値）
+/// blue_factor: 青チャンネルの係数（100倍された整数値）
+pub fn color_balance(
+  _width : Int,
+  _height : Int,
+  red_factor : Int,
+  green_factor : Int,
+  blue_factor : Int,
+) -> Unit {
+  let data_len = read_length(buffer_offset)
+  let data_start = buffer_offset + 4
+  let pixel_count = data_len / 4
+  for i = 0; i < pixel_count; i = i + 1 {
+    let base = data_start + i * 4
+    let r = load8(base)
+    let g = load8(base + 1)
+    let b = load8(base + 2)
+    let a = load8(base + 3)
+
+    // 各チャンネルに係数を適用
+    let new_r = r * red_factor / 100
+    let new_g = g * green_factor / 100
+    let new_b = b * blue_factor / 100
+
+    // 0-255の範囲にクリップ
+    store8(base, clamp(new_r, 0, 255))
+    store8(base + 1, clamp(new_g, 0, 255))
+    store8(base + 2, clamp(new_b, 0, 255))
+    store8(base + 3, a)
+  }
+}
+
+///|
+/// コントラスト調整フィルター
+///
+/// width: 画像の幅（ピクセル単位）
+/// height: 画像の高さ（ピクセル単位）
+/// contrast: コントラスト係数（0.0で完全にグレー、1.0で元のまま、2.0で2倍）整数として渡されるため、内部で100で割って実数に変換する
+pub fn contrast(_width : Int, _height : Int, contrast_int : Int) -> Unit {
+  let data_len = read_length(buffer_offset)
+  let data_start = buffer_offset + 4
+  let pixel_count = data_len / 4
+
+  // コントラスト係数を実数に変換（100倍された値として渡される）
+  // 例: 150 → 1.5, 50 → 0.5
+  let contrast = contrast_int
+  let center = 128
+  for i = 0; i < pixel_count; i = i + 1 {
+    let base = data_start + i * 4
+    let r = load8(base)
+    let g = load8(base + 1)
+    let b = load8(base + 2)
+    let a = load8(base + 3)
+
+    // 中心値からの距離をコントラスト係数で拡大縮小
+    // 整数演算で行うため、100で割る
+    let new_r = (r - center) * contrast / 100 + center
+    let new_g = (g - center) * contrast / 100 + center
+    let new_b = (b - center) * contrast / 100 + center
+
+    // 0-255の範囲にクリップ
+    store8(base, clamp(new_r, 0, 255))
+    store8(base + 1, clamp(new_g, 0, 255))
+    store8(base + 2, clamp(new_b, 0, 255))
     store8(base + 3, a)
   }
 }
