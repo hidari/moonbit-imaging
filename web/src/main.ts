@@ -19,6 +19,7 @@ let originalImageData: ImageData | null = null;
 // Canvas要素の取得
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
+const canvasContainer = document.querySelector('.canvas-container') as HTMLElement;
 const imageInput = document.getElementById('imageInput') as HTMLInputElement;
 const grayscaleBtn = document.getElementById('grayscaleBtn') as HTMLButtonElement;
 const brightnessSlider = document.getElementById('brightnessSlider') as HTMLInputElement;
@@ -35,6 +36,7 @@ const blueSlider = document.getElementById('blueSlider') as HTMLInputElement;
 const blueValue = document.getElementById('blueValue') as HTMLSpanElement;
 const applyColorBalanceBtn = document.getElementById('applyColorBalanceBtn') as HTMLButtonElement;
 const resetBtn = document.getElementById('resetBtn') as HTMLButtonElement;
+const clearImageBtn = document.getElementById('clearImageBtn') as HTMLButtonElement;
 
 // WASMモジュールの初期化
 async function initWasm() {
@@ -121,6 +123,9 @@ imageInput.addEventListener('change', async (e) => {
     // 元の画像データを保存
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
+    // 画像が読み込まれたことを示すクラスを追加
+    canvasContainer.classList.add('has-image');
+
     // ボタンなどを有効化
     grayscaleBtn.disabled = false;
     brightnessSlider.disabled = false;
@@ -132,6 +137,7 @@ imageInput.addEventListener('change', async (e) => {
     blueSlider.disabled = false;
     applyColorBalanceBtn.disabled = false;
     resetBtn.disabled = false;
+    clearImageBtn.disabled = false;
   };
 
   img.src = URL.createObjectURL(file);
@@ -226,6 +232,47 @@ applyColorBalanceBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   if (!originalImageData) return;
   ctx.putImageData(originalImageData, 0, 0);
+});
+
+// 画像クリアボタン
+clearImageBtn.addEventListener('click', () => {
+  // Canvasをクリア
+  canvas.width = 0;
+  canvas.height = 0;
+
+  // 画像データをリセット
+  originalImageData = null;
+
+  // has-imageクラスを削除して「No Image」を再表示
+  canvasContainer.classList.remove('has-image');
+
+  // ファイル入力をリセット
+  imageInput.value = '';
+
+  // 全てのコントロールを無効化
+  grayscaleBtn.disabled = true;
+  brightnessSlider.disabled = true;
+  applyBrightnessBtn.disabled = true;
+  contrastSlider.disabled = true;
+  applyContrastBtn.disabled = true;
+  redSlider.disabled = true;
+  greenSlider.disabled = true;
+  blueSlider.disabled = true;
+  applyColorBalanceBtn.disabled = true;
+  resetBtn.disabled = true;
+  clearImageBtn.disabled = true;
+
+  // スライダーの値をリセット
+  brightnessSlider.value = '0';
+  brightnessValue.textContent = '0';
+  contrastSlider.value = '100';
+  contrastValue.textContent = '100';
+  redSlider.value = '100';
+  redValue.textContent = '100';
+  greenSlider.value = '100';
+  greenValue.textContent = '100';
+  blueSlider.value = '100';
+  blueValue.textContent = '100';
 });
 
 // 初期化
