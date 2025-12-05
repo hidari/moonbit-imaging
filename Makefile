@@ -38,5 +38,18 @@ start:
 # Vite開発サーバーの起動
 boot:
 	make set-wasm && \
-	make lint && \
+	make format && \
 	make start
+
+.PHONY: build preview
+
+# プロダクションビルド
+build:
+	make set-wasm && \
+	cd web && \
+	pnpm build
+
+# ビルド結果のプレビュー
+preview:
+	cd web && \
+	pnpm preview
