@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/moonbit-imaging/',
   plugins: [],
   css: {
     modules: {
