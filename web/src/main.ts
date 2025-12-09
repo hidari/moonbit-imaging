@@ -45,7 +45,7 @@ async function initWasm() {
     const memory = new WebAssembly.Memory({ initial: 8192 });
 
     // WASMファイルを読み込む
-    const response = await fetch('/wasm/lib.wasm');
+    const response = await fetch(`${import.meta.env.BASE_URL}wasm/lib.wasm`);
     const bytes = await response.arrayBuffer();
 
     // WASMモジュールをインスタンス化
