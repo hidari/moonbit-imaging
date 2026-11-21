@@ -1,0 +1,345 @@
+lockfile_version: '1'
+apm_version: 0.34.0
+dependencies:
+- repo_url: moonbitlang/skills
+  name: moonbit-agent-guide
+  host: github.com
+  resolved_commit: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  resolved_ref: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  version: unknown
+  virtual_path: skills/moonbit-agent-guide
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/moonbit-agent-guide
+  - .claude/skills/moonbit-agent-guide/.gitignore
+  - .claude/skills/moonbit-agent-guide/LICENSE
+  - .claude/skills/moonbit-agent-guide/README.md
+  - .claude/skills/moonbit-agent-guide/SKILL.mbt.md
+  - .claude/skills/moonbit-agent-guide/SKILL.md
+  - .claude/skills/moonbit-agent-guide/ide.md
+  - .claude/skills/moonbit-agent-guide/moon.mod
+  - .claude/skills/moonbit-agent-guide/moon.pkg
+  - .claude/skills/moonbit-agent-guide/references/advanced-moonbit-build.md
+  - .claude/skills/moonbit-agent-guide/references/moon.pkg
+  - .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.mbt.md
+  - .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.md
+  deployed_file_hashes:
+    .claude/skills/moonbit-agent-guide/.gitignore: sha256:97b116407aa48739c4c4998946624901829597a836fc4f5d579dbc35bf6fdf73
+    .claude/skills/moonbit-agent-guide/LICENSE: sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+    .claude/skills/moonbit-agent-guide/README.md: sha256:56a0944128cadba7c4c21841763268496fbfddd7615e7bb44a77a5564704c166
+    .claude/skills/moonbit-agent-guide/SKILL.mbt.md: sha256:59155b1e6ffd2ab97a519489994517a545b2271812c1d8fce1f00188c593a5e8
+    .claude/skills/moonbit-agent-guide/SKILL.md: sha256:59155b1e6ffd2ab97a519489994517a545b2271812c1d8fce1f00188c593a5e8
+    .claude/skills/moonbit-agent-guide/ide.md: sha256:bdc03e023a72ed2d7d6b16e7bd5db53ba5de97be86286f449702203eb7aeb7d5
+    .claude/skills/moonbit-agent-guide/moon.mod: sha256:8520197e7455fc35c83c726efa0b02125362d5f12786f949c6685cd333fb621a
+    .claude/skills/moonbit-agent-guide/moon.pkg: sha256:dfb18e70edc1861432319891adaf5b99c80fb1f2673379dddd776f10c527c4ea
+    .claude/skills/moonbit-agent-guide/references/advanced-moonbit-build.md: sha256:ffb4b9b8bd1c106598e28d9ad1f878c4f2f49537223a0df6911a4ad7d24474a0
+    .claude/skills/moonbit-agent-guide/references/moon.pkg: sha256:bd9f6b2c7c9fe53cb56bb7ed3ef6b8a24fce51b41491a9a9b012e2f6f9522cb2
+    .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.mbt.md: sha256:4d1ba80c5415d52339671388ef174995310ada6181277279d228e1eaa3eac2ae
+    .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.md: sha256:4d1ba80c5415d52339671388ef174995310ada6181277279d228e1eaa3eac2ae
+  content_hash: sha256:c30e7f617cc74aba450bb1df5535bcc51665ec036fef0a909cb6a94f741f6c76
+- repo_url: moonbitlang/skills
+  name: moonbit-orientation
+  host: github.com
+  resolved_commit: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  resolved_ref: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  version: unknown
+  virtual_path: skills/moonbit-orientation
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/moonbit-orientation
+  - .claude/skills/moonbit-orientation/SKILL.md
+  - .claude/skills/moonbit-orientation/agents/openai.yaml
+  - .claude/skills/moonbit-orientation/references/answer-shapes.md
+  - .claude/skills/moonbit-orientation/references/capabilities-faq.md
+  - .claude/skills/moonbit-orientation/references/diagnostics-playbook.md
+  - .claude/skills/moonbit-orientation/references/idioms.md
+  - .claude/skills/moonbit-orientation/references/lookup-recipes.md
+  - .claude/skills/moonbit-orientation/references/mental-models.md
+  - .claude/skills/moonbit-orientation/references/question-routing.md
+  - .claude/skills/moonbit-orientation/references/source-map.md
+  - .claude/skills/moonbit-orientation/references/toolchain-map.md
+  deployed_file_hashes:
+    .claude/skills/moonbit-orientation/SKILL.md: sha256:7bfadabc647e95c0f21d4a9556811bc1b645a2f85ba5c46a0ee70495dab257ca
+    .claude/skills/moonbit-orientation/agents/openai.yaml: sha256:e42c9cb6bfc4bc1ff80468390fdb7967e9f9775a7dd70e822b74d9760619cbc4
+    .claude/skills/moonbit-orientation/references/answer-shapes.md: sha256:cd8b72364251d11c83ecef7263d01bd476d9945565ff16ae79322359bf5ff3ae
+    .claude/skills/moonbit-orientation/references/capabilities-faq.md: sha256:44915c408f865c4bf58d021738d776c1943b5fe729c00a678cbbc88732b28ecb
+    .claude/skills/moonbit-orientation/references/diagnostics-playbook.md: sha256:dfddd29c9bc2c5fea88cf9c9f643a138c1c4706bfc08ed0412203e5831b7264e
+    .claude/skills/moonbit-orientation/references/idioms.md: sha256:85138ecfd7ad406673831b8f7522293565334147e4b8db92c9922c26d9a7542a
+    .claude/skills/moonbit-orientation/references/lookup-recipes.md: sha256:863004fd55de4558ad16c93bf443083d12e23e736f95bb5801426f02e0b33a77
+    .claude/skills/moonbit-orientation/references/mental-models.md: sha256:eeffd2b260e2bca32c95645e539a8de7ca8202b95774fa44d8fb9cd6f5e5a079
+    .claude/skills/moonbit-orientation/references/question-routing.md: sha256:d57ef59af807b3f16b7d5b9277d27358e6dcd4b869cc95ebfd499165f8f4d8ca
+    .claude/skills/moonbit-orientation/references/source-map.md: sha256:dd469d3eac088d18968a0e3f4dd5f267273f08b462d4dea7369b785c4e6445ec
+    .claude/skills/moonbit-orientation/references/toolchain-map.md: sha256:f21c6108efd13f8d8135dbbf65cdbac0b2c0df5215918909a143018cbcffeea3
+  content_hash: sha256:30e5106f76bac6efa0aaf56b2df98f0a1961852e70ec16b07f799cceebee8710
+- repo_url: moonbitlang/skills
+  name: moonbit-refactoring
+  host: github.com
+  resolved_commit: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  resolved_ref: cc5435cb236fb92b144ccd46773adfe5502a42c6
+  version: unknown
+  virtual_path: skills/moonbit-refactoring
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/moonbit-refactoring
+  - .claude/skills/moonbit-refactoring/LICENSE
+  - .claude/skills/moonbit-refactoring/SKILL.md
+  deployed_file_hashes:
+    .claude/skills/moonbit-refactoring/LICENSE: sha256:6d5553ec65b9eccb13e341ee0d5d1eff15ef69c6b1374813f724997bf05d6c23
+    .claude/skills/moonbit-refactoring/SKILL.md: sha256:de37a86b93de4abde41e1e6c4809470cdbbf464827519b95d013c5cf46d5aabe
+  content_hash: sha256:1a20bd55385e0a076b78cf502b0bb957d2c71a3e637055b6653a678c89b1231b
+deployments:
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/.gitignore
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:97b116407aa48739c4c4998946624901829597a836fc4f5d579dbc35bf6fdf73
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/README.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:56a0944128cadba7c4c21841763268496fbfddd7615e7bb44a77a5564704c166
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/SKILL.mbt.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:59155b1e6ffd2ab97a519489994517a545b2271812c1d8fce1f00188c593a5e8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:59155b1e6ffd2ab97a519489994517a545b2271812c1d8fce1f00188c593a5e8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/ide.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:bdc03e023a72ed2d7d6b16e7bd5db53ba5de97be86286f449702203eb7aeb7d5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/moon.mod
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:8520197e7455fc35c83c726efa0b02125362d5f12786f949c6685cd333fb621a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/moon.pkg
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:dfb18e70edc1861432319891adaf5b99c80fb1f2673379dddd776f10c527c4ea
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/references/advanced-moonbit-build.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:ffb4b9b8bd1c106598e28d9ad1f878c4f2f49537223a0df6911a4ad7d24474a0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/references/moon.pkg
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:bd9f6b2c7c9fe53cb56bb7ed3ef6b8a24fce51b41491a9a9b012e2f6f9522cb2
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.mbt.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:4d1ba80c5415d52339671388ef174995310ada6181277279d228e1eaa3eac2ae
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-agent-guide/references/moonbit-language-fundamentals.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-agent-guide
+  active_owner: moonbitlang/skills/skills/moonbit-agent-guide
+  content_hash: sha256:4d1ba80c5415d52339671388ef174995310ada6181277279d228e1eaa3eac2ae
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:7bfadabc647e95c0f21d4a9556811bc1b645a2f85ba5c46a0ee70495dab257ca
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:e42c9cb6bfc4bc1ff80468390fdb7967e9f9775a7dd70e822b74d9760619cbc4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/answer-shapes.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:cd8b72364251d11c83ecef7263d01bd476d9945565ff16ae79322359bf5ff3ae
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/capabilities-faq.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:44915c408f865c4bf58d021738d776c1943b5fe729c00a678cbbc88732b28ecb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/diagnostics-playbook.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:dfddd29c9bc2c5fea88cf9c9f643a138c1c4706bfc08ed0412203e5831b7264e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/idioms.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:85138ecfd7ad406673831b8f7522293565334147e4b8db92c9922c26d9a7542a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/lookup-recipes.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:863004fd55de4558ad16c93bf443083d12e23e736f95bb5801426f02e0b33a77
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/mental-models.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:eeffd2b260e2bca32c95645e539a8de7ca8202b95774fa44d8fb9cd6f5e5a079
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/question-routing.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:d57ef59af807b3f16b7d5b9277d27358e6dcd4b869cc95ebfd499165f8f4d8ca
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/source-map.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:dd469d3eac088d18968a0e3f4dd5f267273f08b462d4dea7369b785c4e6445ec
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-orientation/references/toolchain-map.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-orientation
+  active_owner: moonbitlang/skills/skills/moonbit-orientation
+  content_hash: sha256:f21c6108efd13f8d8135dbbf65cdbac0b2c0df5215918909a143018cbcffeea3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-refactoring
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-refactoring
+  active_owner: moonbitlang/skills/skills/moonbit-refactoring
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-refactoring/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-refactoring
+  active_owner: moonbitlang/skills/skills/moonbit-refactoring
+  content_hash: sha256:6d5553ec65b9eccb13e341ee0d5d1eff15ef69c6b1374813f724997bf05d6c23
+- kind: project-relative
+  target: claude
+  value: .claude/skills/moonbit-refactoring/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - moonbitlang/skills/skills/moonbit-refactoring
+  active_owner: moonbitlang/skills/skills/moonbit-refactoring
+  content_hash: sha256:de37a86b93de4abde41e1e6c4809470cdbbf464827519b95d013c5cf46d5aabe

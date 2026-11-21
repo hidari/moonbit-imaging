@@ -1,0 +1,14 @@
+name: moonbit-imaging
+version: 1.0.0
+description: moonbit-imaging 開発用の外部 skill
+author: Hidari
+targets:
+  - claude
+dependencies:
+  apm:
+    - moonbitlang/skills/skills/moonbit-agent-guide#cc5435cb236fb92b144ccd46773adfe5502a42c6
+    - moonbitlang/skills/skills/moonbit-orientation#cc5435cb236fb92b144ccd46773adfe5502a42c6
+    - moonbitlang/skills/skills/moonbit-refactoring#cc5435cb236fb92b144ccd46773adfe5502a42c6
+  mcp: []
+includes: auto
+scripts: {}
