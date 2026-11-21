@@ -20,3 +20,9 @@ dist
 
 # Claude Code
 .claude/settings.local.json
+
+# apm の依存と配備先 (再生成物)。どの版かの canonical は apm.lock.yaml
+apm_modules/
+.claude/skills/moonbit-agent-guide/
+.claude/skills/moonbit-orientation/
+.claude/skills/moonbit-refactoring/
